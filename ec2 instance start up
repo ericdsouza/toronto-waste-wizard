@@ -1,0 +1,51 @@
+$ ssh -i /Users/MacMini/Desktop/kp-ericdsouza.pem 107.21.58.226 -l ec2-user
+
+$ sudo yum -y update
+$ sudo yum -y install python36 python36-virtualenv python36-pip
+$ mkdir ~/forlambda
+$ cd ~/forlambda
+$ virtualenv -p python3 venv
+$ source venv/bin/activate
+
+$ cd ~
+$ sudo yum -y groupinstall "Development Tools"
+$ pip install python-dateutil
+$ pip install shapely -t ~/forlambda/venv/lib/python3.6/site-packages/
+$ pip install pyproj -t ~/forlambda/venv/lib/python3.6/site-packages/
+$ pip install pyshp
+$ pip install requests -t ~/forlambda/venv/lib/python3.6/site-packages/
+
+from Mac:
+$ scp -i /Users/MacMini/Desktop/kp-ericdsouza.pem -r /Users/MacMini/Desktop/fromec2/tww_standalone.py ec2-user@107.21.58.226:~/
+
+run tww
+$ python tww_standalone.py
+
+to Mac:
+$ scp -i /Users/MacMini/Desktop/kp-ericdsouza.pem -r ec2-user@107.21.58.226:~/forlambda/venv/lib/python3.6/site-packages/ /Users/MacMini/Desktop/fromec2/
+
+
+xxx $ ./configure --prefix=/home/ec2-user/python-fin --with-ensurepip=upgrade
+xxx $ vi ~/.bashrc
+xxx alias python=python3
+xxx $ source ~/.bashrc
+xxx $ sudo yum -y install Cython --enablerepo=epel
+
+xxx $ cd ~/forlambda/venv/Shapely-master
+xxx $ python3 setup.py build
+xxx $ python3 setup.py install
+
+$ scp -i /Users/MacMini/Desktop/kp-ericdsouza.pem -r ec2-user@107.21.58.226:~/tww_full .
+
+
+xxx scp -i /Users/MacMini/Desktop/kp-ericdsouza.pem -r /Users/MacMini/Documents/Alexa/Skills/TorontoGarbage/pyshp-master ec2-user@107.21.58.226:~/
+xxx scp -i /Users/MacMini/Desktop/kp-ericdsouza.pem -r /Users/MacMini/Documents/Alexa/Skills/TorontoGarbage/pyproj-1.9.5.1 ec2-user@107.21.58.226:~/
+xxx scp -i /Users/MacMini/Desktop/kp-ericdsouza.pem -r /Users/MacMini/Documents/Alexa/Skills/TorontoGarbage/geos-0.2.1-py3-none-any.whl ec2-user@107.21.58.226:~/
+
+xxx $ sudo yum -y install geos-devel.x86_64
+xxx $ pip install geos-0.2.1-py3-none-any.whl
+xxx $ pip install Shapely-master/
+xxx $ pip install pyshp-master/
+
+
+
